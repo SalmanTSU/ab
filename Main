@@ -1,0 +1,95 @@
+public class Main {
+
+ public static void main(String[] args) {
+ // Constant for the number of ships.
+ final int NUM_SHIPS = 3;
+
+ // Create an array of Ship references.
+ Ship[] ships = new Ship[NUM_SHIPS];
+
+// Assign Ship objects to the array elements.
+ ships[0] = new Ship("Lolipop", "1935");
+ ships[1] = new CruiseShip("Disney Magic", "1998", 2400);
+ ships[2] = new CargoShip("Black Pearl", "1800", 50000);
+
+
+ // Call each object's toString method.
+ for (int index = 0; index < 3; index++) {
+ System.out.println(ships[index]);
+ System.out.println("----------------------------");
+   }
+  }
+}
+
+
+
+class CargoShip extends Ship {
+  private int cargoCapacity;
+
+ public CargoShip (String n, String y,int cc) 
+	{
+	   super(n,y);
+	   cargoCapacity = cc;
+	}
+   public int getCargoCapacity() {
+     return cargoCapacity;
+   }
+   public void setCargoCapacity(int cargoCapacity ){
+     this.cargoCapacity = cargoCapacity;
+   }
+
+    public String toString(){
+		return "Name: " + getShipName() + " \n Capacity: " + getCargoCapacity();
+	}
+}
+
+
+
+
+class CruiseShip extends Ship {
+  int maxNumOfPassengers;
+  
+public CruiseShip (String n, String y,int mp) 
+	{
+	   super(n,y);
+	   maxNumOfPassengers = mp;
+	}
+public int getMaxNumOfPassengers(){
+  return maxNumOfPassengers;
+}
+public void setMaxNumOfPassengers(int maxNumOfPassengers){
+  this.maxNumOfPassengers = maxNumOfPassengers;
+ }
+ public String toString(){
+   
+		return "Name: " + getShipName() + " \n Max Passengers: " + getMaxNumOfPassengers();
+ }
+}
+
+
+
+class Ship {
+  private String shipName;
+  private String yearBuilt;
+
+  public Ship(String s, String y){
+    this.shipName = s ;
+    this.yearBuilt = y;
+  }
+  public String getShipName(){
+    return shipName;
+  }
+  public String getYearBuilt(){
+    return yearBuilt;
+  }
+  public void setShipName(String shipName){
+    this.shipName = shipName;
+  }
+  public void setYearBuilt(String yearBuilt ) {
+    this.yearBuilt = yearBuilt;
+  }
+
+  public String toString(){
+		return "Name: " + getShipName() + "\n Year Built: " + getYearBuilt();
+	}
+}
